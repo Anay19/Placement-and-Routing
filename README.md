@@ -3,8 +3,8 @@
 Cell Placement Algorithm
 
 The cell placement algorithm used is the Force-Directed Placement Algorithm. This algorithm aims to place the cells in a way that minimizes wire length and congestion while considering the connectivity between the cells.
-Data Structures
 
+Data Structures
     Net Information Vector: Stores information about each net, including the net number, source terminal, target terminal, and source and target cell numbers.
     Connectivity Matrix: Stores the connections between cells through nets.
     Cell Weight Vector: Stores the connectivity size (number of connections) of each cell.
@@ -12,7 +12,6 @@ Data Structures
     Placement Matrix: Used to manipulate the cells and place them at the best possible locations using the force-directed algorithm.
 
 Algorithm Steps
-
     Initially, all cells are placed randomly in the placement matrix.
     Cells are sorted based on their connectivity (number of connections).
     The cell with the highest connectivity is chosen as the seed cell.
@@ -28,14 +27,13 @@ The time complexity of the force-directed placement algorithm depends on the num
 Routing Algorithm (Lee Algorithm)
 
 The routing algorithm used is the Lee Algorithm, which is a wave propagation algorithm that finds the shortest path between a source and a target while considering blockages and vias (layer changes).
-Data Structures
 
+Data Structures
     Struct for Net Information: Stores information about Lee numbers, blocks, vias, net numbers, and net surroundings in both layers.
     Cell Coordinate Vector: Stores the locations of cell terminals.
     Queue: Used for breadth-first search during wave propagation.
 
 Algorithm Steps
-
     Wave Propagation: The Lee algorithm propagates a wave from the source to the target by assigning a number equivalent to the Manhattan distance at each block. The wave propagation ends when the target point is reached. This process happens in two layers, and if there is a blockage in one layer, the algorithm checks the other layer and assigns a Lee number if there is no blockage.
     Back Trace: The back trace starts at the target and tries to follow the same direction as the wave propagation until it cannot proceed further. When it encounters a turn, it takes the path with the smallest Lee number compared to its previous value. Whenever there is a layer change (from layer 1 to layer 2 or vice versa), a via is inserted at that location.
 
